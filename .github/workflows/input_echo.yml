@@ -1,0 +1,16 @@
+name: Input Echo Workflow
+
+on:
+  push:
+    branches:
+      - main   
+jobs:
+  echo_input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Input
+        run: echo "The input is: ${{ github.event.inputs.my_input }}"
+inputs:
+  my_input:
+    description: 'Enter your input value'
+    required: true
