@@ -1,0 +1,16 @@
+name: Name_Echo_Message
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Enter your name'
+        required: true
+
+jobs:
+  echo_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Input Name
+        run: |
+          echo "Hello ${{ github.event.inputs.name }}. You have successfully run the Input Echo action."
