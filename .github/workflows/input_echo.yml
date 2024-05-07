@@ -1,16 +1,17 @@
-name: Input Echo Workflow
+
+name: Inputs
 
 on:
-  push:
-    branches:
-      - main   
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Enter Input Message'
+        required: true
+
 jobs:
-  echo_input:
+  input_display:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Input
-        run: echo "The input is: ${{ github.event.inputs.my_input }}"
-inputs:
-  my_input:
-    description: 'Enter your input value'
-    required: true
+      - name: Input Display Message
+        run: echo "${{ github.event.inputs.message }}"
+
